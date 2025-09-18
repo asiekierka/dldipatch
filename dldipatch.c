@@ -354,10 +354,18 @@ void print_help(void)
 	printf("dldipatch extract homebrew dldi.dldi\n\n");
 	printf("Extracting a DLDI from a homebrew's embedded DLDI:\n");
 	printf("dldipatch info dldi/homebrew \n\n");
+	printf("Print version of dldipatch:\n");
+	printf("dldipatch -V\n\n");
 }
 
 int main(const int argc, const char **argv)
 {
+	if ((argc == 2) && (strcmp(argv[1], "-V") == 0))
+	{
+		printf("dldipatch " VERSION_STRING "\n");
+		return 0;
+	}
+
 	if (argc < 2 || (argc < 4 && strncmp(argv[1], "info", 4) != 0))
 	{
 		print_help();
